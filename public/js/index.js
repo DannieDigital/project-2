@@ -41,7 +41,7 @@ signUp.on("submit", function(event){
         password: signupPassword.val().trim()
     }
     
-    if (!userProfile.nameFirst || !userProfile.nameLast || !userProfile.userName || !userProfile.email || !userProfile.password){
+    if (!userProfile.nameFirst || !userProfile.nameLast || !userProfile.userName || !userProfile.email || !userProfile.password == ""){
         signupAlert.removeAttr("hidden")
         signupAlert.text("Please complete all required fields")
         return;
@@ -69,5 +69,7 @@ function loginUser(username, password){
         .catch(function(err) {
           console.log(err);
         });
+
+        localStorage.setItem('user', username);
 
 }
