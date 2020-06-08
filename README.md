@@ -1,8 +1,11 @@
-# Devs on Deck
-![teamDigtialDesigns](public/assets/teamDigitalDesign.png?size=250)<br/>
-#### DanielleRBeaty@gmail.com
+# Devs/Deck
+<p style="text-align: center;">
+![teamDigtialDesigns](public/assets/teamDigitalDesign.png)<br/>
+<p>
+
 #### anreeves83@gmail.com
 #### ayanna.shaheed@gmail.com
+#### DanielleRBeaty@gmail.com
 #### domiwar.it@gmail.com
 
 ----
@@ -21,13 +24,15 @@
 ---
 
 ### Dependencies
-##### To run the employee tracker application, first download this repository and run "npm install" which will install the following npm package dependencies as specified in the package.json:
+##### 
 
 * [MySQL](https://www.npmjs.com/package/mysql) NPM package to connect to MySQL database and perform queries.
 
 * [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3) NPM package to interact with the user via the command-line.
 
 * [console.table](https://www.npmjs.com/package/console.table) to print MySQL rows to the console.
+
+* [Passport](http://www.passportjs.org/docs/) Passport is authentication middleware for Node that can authenicate username and passwords. 
 
 ### How to Use
 ###### 
@@ -41,7 +46,7 @@
 ###### Danielle Beaty
 ###### Dominique Warfield 
 ---
-### App Scheme
+### App Schema
 ![](public/assets/database.png)
 
 ---
