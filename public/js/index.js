@@ -15,18 +15,17 @@ var signupAlert = $("#signupAlert")
 login.on("submit", function(event){
 
     event.preventDefault();
-    if (loginUsername.val().trim() == "" || loginPassword.val().trim()){
+
+    var username = loginUsername.val().trim();
+    var password = loginPassword.val().trim();
+
+    if (username == "" || password == ""){
         loginAlert.removeAttr("hidden")
         loginAlert.text("Please enter your username and or password")
         return;
     }
 
-    var user = {
-        username: loginUsername.val().trim(),
-        password: loginPassword.val().trim(),
-    }
-
-    loginUser(user)
+    loginUser(username, password);
 });
 
 signUp.on("submit", function(event){
@@ -41,12 +40,13 @@ signUp.on("submit", function(event){
         password: signupPassword.val().trim()
     }
     
-    if (!userProfile.nameFirst || !userProfile.nameLast || !userProfile.userName || !userProfile.email || !userProfile.password == ""){
+    if (!userProfile.nameFirst || !userProfile.nameLast || !userProfile.userName || !userProfile.email || !userProfile.password){
         signupAlert.removeAttr("hidden")
         signupAlert.text("Please complete all required fields")
         return;
     }
 
+    // Needs to be tested
     $.post("/api/signup", userProfile)
         .then(function() {
           loginUser(userProfile.userName, userProfile.password)
@@ -57,7 +57,7 @@ signUp.on("submit", function(event){
 })
 
 function loginUser(username, password){
-
+    // Needs to be tested
     $.post("/api/login", {
         username: username,
         password: password
@@ -71,5 +71,11 @@ function loginUser(username, password){
         });
 
         localStorage.setItem('user', username);
+
+    // Maybe a get to get the users id and save it to local storage
+
+    // $.get(`/api/users/${username}`, function(data){
+
+    // })
 
 }
