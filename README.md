@@ -1,7 +1,5 @@
-# Devs/Deck
-<p style="text-align: center;">
-![teamDigtialDesigns](public/assets/teamDigitalDesign.png)<br/>
-<p>
+# Devs on Deck
+![teamDigtialDesigns](public/assets/team.png?size=250)<br/>
 
 #### anreeves83@gmail.com
 #### ayanna.shaheed@gmail.com
