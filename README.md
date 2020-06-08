@@ -1,14 +1,17 @@
-# Devs on Deck
+# Devs/Deck
+---
+## Team Digital Designs
 ![teamDigtialDesigns](public/assets/team.png?size=250)<br/>
 
-#### anreeves83@gmail.com
-#### ayanna.shaheed@gmail.com
-#### DanielleRBeaty@gmail.com
-#### domiwar.it@gmail.com
+* Connect [Ayanna](ayanna.shaheed@gmail.com) if you are seeking a strong frontend/backend dev.
+* Connect [Aja](anreeves83@gmail.com) if you are seeking  a strong frontend/backend dev.
+* Connect [Danielle](DanielleRBeaty@gmail.com) if you are seeking a strong frontend/backend dev and UX designer with product and program managment expereience. 
+* Connect [Dom](domiwar.it@gmail.com) if you are seeking strong front end dev and UX designer.
+
 
 ----
 ### Description
-###### Our team created a social media app for developers to share content with other developers, UX desigers etc. The application can to create, save, and delete text and pictures within mySQL database. This application used an express backend, mySQL serever, passport and save and retrieve users' data from mySQL data. 
+###### Devs on Deck is a social media appilication for developers to share content with other developers, UX desigers etc. The application can create, save, and delete text and pictures within mySQL database. This application used an express backend, mySQL serever, and passport. The application save and retrieve users' data from mySQL data. 
 
 ---
 ## Table of contents
