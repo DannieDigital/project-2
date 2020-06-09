@@ -1,4 +1,5 @@
 var express = require("express");
+//const upload = require ("express-fileupload")
 
 // Sets up the Express App
 // =============================================================
@@ -34,7 +35,8 @@ app.post('/login',
 
 //Routes
 //require("./routes/html-routes.js")(app);
-//require("./routes/api-routes.js")(app);
+require("./routes/users-api-routes.js")(app);
+require("./routes/posts-api-routes.js")(app);
 
 
 db.sequelize.sync({ force: true }).then(function() {
