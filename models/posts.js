@@ -11,8 +11,12 @@ module.exports = function(sequelize, DataTypes) {
         }
       });
     };
+<<<<<<< HEAD
 
   
 
+=======
+    
+>>>>>>> user routes working
     return Posts;
   };
