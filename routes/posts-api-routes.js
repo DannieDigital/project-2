@@ -5,10 +5,11 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
+  // This route works
   app.get("/api/posts", function(req, res) {
     var query = {};
     if (req.query.users_id) {
-      query.UsersId = req.query.users_id;
+      query.UserId = req.query.users_id;
     }
     // Includes user
     db.Posts.findAll({
@@ -20,10 +21,9 @@ module.exports = function(app) {
   });
 
   // Get route for retrieving a single post
+  // This route works
   app.get("/api/posts/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
+    
     db.Posts.findOne({
       where: {
         id: req.params.id
@@ -35,6 +35,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
+  // This route works (UserId)
   app.post("/api/posts", function(req, res) {
     db.Posts.create(req.body).then(function(dbPosts) {
       res.json(dbPosts);
