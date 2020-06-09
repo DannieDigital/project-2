@@ -44,6 +44,7 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting posts
+  // this route works but does not return deleted post
   app.delete("/api/posts/:id", function(req, res) {
     db.Posts.destroy({
       where: {
@@ -55,6 +56,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating posts
+  // this route works but does not return updated post
   app.put("/api/posts", function(req, res) {
     db.Posts.update(
       req.body,
