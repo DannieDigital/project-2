@@ -37,6 +37,15 @@
     "password": "",
     "database": "database_test",
     "host": "127.0.0.1",
+
+ 
+
+  "production": {
+    "username": "d7ifr6l7eoaulyjb",
+    "password": "dlwnewh8ti7pzegh",
+    "database": "xwa62xz5osjyna8t",
+    "use_env_variable": "mysql://d7ifr6l7eoaulyjb:dlwnewh8ti7pzegh@qf5dic2wzyjf1x5x.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/xwa62xz5osjyna8t",
+    "host": "3306",
     "dialect": "mysql",
     "operatorsAliases": false
   },
