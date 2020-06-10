@@ -12,11 +12,17 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   
 
 =======
     
 >>>>>>> user routes working
+=======
+
+  
+
+>>>>>>> hashtag associated with posts-hashtag api routes working
     return Posts;
   };
