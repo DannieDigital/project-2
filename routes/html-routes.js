@@ -6,6 +6,8 @@
 // =============================================================
 var path = require("path");
 
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -14,17 +16,26 @@ module.exports = function(app) {
 
   // index route loads index.html
   app.get("/", function(req, res) {
+     // If the user already has an account send them to the index(signup/login) page
+    if (req.user) {
+      res.redirect("/mytimeline");
+    }
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   // myposts route loads myposts.html
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/myposts.html"));
+  app.get("/index", function(req, res) {
+    // If the user already has an account send them to the index(signup/login) page
+    if (req.user) {
+      res.redirect("mytimeline");
+    }
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   // mytimeline route loads mytimeline.html
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/mytimeline.html"));
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/index", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
-
 };
