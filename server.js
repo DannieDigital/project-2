@@ -19,6 +19,7 @@ app.use(express.static("public"));
 //Routes
 //require("./routes/html-routes.js")(app);
 require("./routes/users-api-routes.js")(app);
+require("./routes/hashtag-api-routes.js")(app);
 require("./routes/posts-api-routes.js")(app);
 
 
