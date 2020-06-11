@@ -1,0 +1,27 @@
+main{
+    color: #2f168a;
+}
+
+#loginbtn{
+ background-color:rgb(102, 36, 163);
+ border-color: rgb(102, 36, 163);
+ 
+}
+
+#landing{
+    background-image: linear-gradient(rgb(33, 19, 65) 30%, #2b0f6d,rgb(33, 19, 65));
+ border-color: rgb(102, 36, 163);
+ color: whitesmoke;
+}
+
+.innercover{
+    color: #f5f3f7;
+ 
+ }
+
+ #runner{
+     font-size: smaller;
+ }
+ #motto{
+     font-size: 50px;
+ }
