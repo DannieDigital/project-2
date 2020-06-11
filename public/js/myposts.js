@@ -76,6 +76,7 @@ function getImage(photoData){
 
 function renderPosts(){
 
+<<<<<<< HEAD
   allPosts.empty();
   
   $.get(`/api/users/${userId}`, function(data){
@@ -134,3 +135,8 @@ var localStorageSpace = function(){
 };
 
 localStorageSpace();
+=======
+  
+
+}
+>>>>>>> Render function built out
