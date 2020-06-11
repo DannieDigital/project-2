@@ -33,28 +33,36 @@ signUp.on("submit", function(event){
 
     var userProfile = {
         avatar: file[0].files[0],
-        nameFirst: firstName.val().trim(),
-        nameLast: lastName.val().trim(),
-        userName: signupUsername.val().trim(),
+        firstname: firstName.val().trim(),
+        lastname: lastName.val().trim(),
+        username: signupUsername.val().trim(),
         email: signupEmail.val().trim(),
         password: signupPassword.val().trim()
     }
+
+    console.log(userProfile);
     
-    if (!userProfile.nameFirst || !userProfile.nameLast || !userProfile.userName || !userProfile.email || !userProfile.password){
+    if (!userProfile.firstname || !userProfile.lastname || !userProfile.username || !userProfile.email || !userProfile.password){
         signupAlert.removeAttr("hidden")
         signupAlert.text("Please complete all required fields")
         return;
     }
 
-    // Needs to be tested
-    $.post("/api/signup", userProfile)
+    // Works
+    $.post("/api/users", userProfile,function(data){
+      localStorage.setItem('userId', data.id);
+      console.log(data)
+    })
         .then(function() {
-          loginUser(userProfile.userName, userProfile.password)
+          // loginUser(userProfile.userName, userProfile.password)
         })
         .catch(function(err) {
           console.log(err);
         });
 })
+
+
+// We still need a login api something that takes the user's username and password and queries the database to see if it's a valid login
 
 function loginUser(username, password){
     // Needs to be tested
