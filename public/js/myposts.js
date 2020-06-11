@@ -42,4 +42,6 @@ updateForm.on("submit",function(event){
 
 function renderPosts(){
 
+  
+
 }
