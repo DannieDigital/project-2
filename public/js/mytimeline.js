@@ -3,7 +3,6 @@ var newPost = $("#newpost");
 var file = $("#file");
 var hashtag = $("#hashtag");
 var postAlert = $("#postAlert");
-
 var userId = localStorage.getItem('userId');
 // var stockPhoto = "assets/profile.png";
 var allPosts = $("#posts");
@@ -22,13 +21,6 @@ searchForm.on("submit", function(event){
   localStorage.setItem("search", searchTerm.val().trim());
   window.location.replace(`/search.html`);
 })
-
-var user = localStorage.getItem('userId');
-var stockPhoto = "assets/profile.png";
-var allPosts = $("#posts");
-
-renderPosts();
-
 
 postForm.on("submit", function(event){
 
@@ -67,15 +59,11 @@ postForm.on("submit", function(event){
 
     // Get form data 
     var post = {
-
       UserId: userId,
       text: newPost.val().trim(),
       HashtagId: null,
       hashtag: hashtag.val().trim(),
       image: image,
-        text: newPost.val().trim(),
-        image: file[0].files[0],
- 
     }
 
     newPost.val("");
@@ -118,7 +106,7 @@ postForm.on("submit", function(event){
 
     $.post("/api/posts", post)
         .then(function() {
-          // renderPosts();
+          renderPosts();
         })
         .catch(function(err) {
           console.log(err);
@@ -156,7 +144,6 @@ function makePost(){
       rowPost.append(newPostBttn);
       allPosts.append(rowPost);
     });
-
 
   
 
@@ -221,52 +208,6 @@ function renderPosts(){
             postRow.append(postDiv);
             allPosts.append(postRow);
           });
-        console.log(data);
-        data.array.forEach(post => {
-          
-          var postRow = $(`<div class = "row post">`);
-          var profilePic = $(`<div class = "col-1"><img src="${post.User.avatar || stockPhoto}" width="50" height="50"></div>`);
-          var postDiv = $(`<div class = "col-11">`);
-          var postCard = $(`<div class="card">`);
-          var popup = $(`<div class="card-body popup">`);
-          var cardText = $(`<p class="card-text">${post.text}</p>`);
-          var hashtag = $(`<p class="card-text"><small class="text-muted">${post.hashtag || " "}</small></p>`);
-          var postImage = $(`<img src="${post.image}" class="card-img-top" alt="..."width="300" height="200">`);
-          var footer = $(`<div class="card-footer text-muted mx-auto">
-          ${moment(post.updatedAt).fromNow()}</div>`);
-
-          postRow.append(profilePic);
-          popup.append(cardText);
-          popup.append(hashtag);
-
-
-    <div class = "col-11">
-    <div class="card">
-        <div class="card-body popup">
-          
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">#express #hw</small></p>
-        </div>
-        <img src="placeholder.png" class="card-img-top" alt="..."width="300" height="200">
-
-        <div class="card-footer text-muted mx-auto">
-          2 days ago
-        </div>
-      </div>
-      </div>
-  </div>
-
-          if (post.image){
-              popup.append(postImage);
-          }
-
-          popup.append(footer);
-
-          postCard.append(popup);
-          postDiv.append(postCard);
-          postRow.append(postDiv);
-          allPosts.append(postRow);
-
         });
    
 }
