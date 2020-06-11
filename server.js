@@ -1,4 +1,6 @@
 var express = require("express");
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 // Sets up the Express App
 // =============================================================

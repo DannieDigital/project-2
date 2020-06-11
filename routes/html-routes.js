@@ -8,6 +8,7 @@ var path = require("path");
 
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -35,7 +36,7 @@ module.exports = function(app) {
   // mytimeline route loads mytimeline.html
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/index", isAuthenticated, function(req, res) {
+  app.get("/mytimeline", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 };
