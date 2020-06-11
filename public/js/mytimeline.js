@@ -3,7 +3,7 @@ var newPost = $("#newpost");
 var file = $("#file");
 var hashtag = $("#hashtag");
 var postAlert = $("#postAlert");
-<<<<<<< HEAD
+
 var userId = localStorage.getItem('userId');
 // var stockPhoto = "assets/profile.png";
 var allPosts = $("#posts");
@@ -12,9 +12,6 @@ var hashtagArr = [];
 var fileLoc = $("#fileLoc");
 var searchForm = $("#searchForm");
 var searchTerm = $("#searchTerm");
-=======
-var user = localStorage.getItem('userId')
->>>>>>> Started render function
 
 renderPosts();
 
@@ -25,6 +22,13 @@ searchForm.on("submit", function(event){
   localStorage.setItem("search", searchTerm.val().trim());
   window.location.replace(`/search.html`);
 })
+
+var user = localStorage.getItem('userId');
+var stockPhoto = "assets/profile.png";
+var allPosts = $("#posts");
+
+renderPosts();
+
 
 postForm.on("submit", function(event){
 
@@ -63,17 +67,15 @@ postForm.on("submit", function(event){
 
     // Get form data 
     var post = {
-<<<<<<< HEAD
+
       UserId: userId,
       text: newPost.val().trim(),
       HashtagId: null,
       hashtag: hashtag.val().trim(),
       image: image,
-=======
-        userId: user,
         text: newPost.val().trim(),
         image: file[0].files[0],
->>>>>>> Started render function
+ 
     }
 
     newPost.val("");
@@ -116,7 +118,7 @@ postForm.on("submit", function(event){
 
     $.post("/api/posts", post)
         .then(function() {
-          // renderPosts();
+          renderPosts();
         })
         .catch(function(err) {
           console.log(err);
@@ -155,6 +157,7 @@ function makePost(){
       allPosts.append(rowPost);
     });
 
+
   
 
 }
@@ -175,7 +178,6 @@ function renderPosts(){
   allPosts.empty();
   makePost();
 // On the back end the orm would return the posts of all the users "user" follows. Thats why we need the user in url. This route could be confused with the one to return all posts from a certain user. Maybe we could name that one "/api/posts/user"
-<<<<<<< HEAD
     $.get("/api/posts", function(data){
         // console.log(data);
         var tagname;
@@ -219,26 +221,24 @@ function renderPosts(){
             postRow.append(postDiv);
             allPosts.append(postRow);
           });
-=======
-    $.get("/api/posts/user", function(data){
         console.log(data);
         data.array.forEach(post => {
           
           var postRow = $(`<div class = "row post">`);
-          var profilePic = $(`<div class = "col-1"><img src="${data.User.avatar}" width="50" height="50"></div>`);
+          var profilePic = $(`<div class = "col-1"><img src="${post.User.avatar || stockPhoto}" width="50" height="50"></div>`);
           var postDiv = $(`<div class = "col-11">`);
           var postCard = $(`<div class="card">`);
           var popup = $(`<div class="card-body popup">`);
-          var cardText = $(`<p class="card-text">${data.text}</p>`);
-          var hashtag = $(`<p class="card-text"><small class="text-muted">${data.hashtag}</small></p>`);
-          var postImage = $(`<img src="${data.image}" class="card-img-top" alt="..."width="300" height="200">`);
+          var cardText = $(`<p class="card-text">${post.text}</p>`);
+          var hashtag = $(`<p class="card-text"><small class="text-muted">${post.hashtag || " "}</small></p>`);
+          var postImage = $(`<img src="${post.image}" class="card-img-top" alt="..."width="300" height="200">`);
           var footer = $(`<div class="card-footer text-muted mx-auto">
-          2 days ago
-        </div>`)
-        });
+          ${moment(post.updatedAt).fromNow()}</div>`);
 
-        <!-- <div class = "row post">
-    <div class = "col-1"><img src="profile.png" width="50" height="50"></div>
+          postRow.append(profilePic);
+          popup.append(cardText);
+          popup.append(hashtag);
+
 
     <div class = "col-11">
     <div class="card">
@@ -254,8 +254,19 @@ function renderPosts(){
         </div>
       </div>
       </div>
-  </div> --></div>
->>>>>>> Started render function
+  </div>
+
+          if (post.image){
+              popup.append(postImage);
+          }
+
+          popup.append(footer);
+
+          postCard.append(popup);
+          postDiv.append(postCard);
+          postRow.append(postDiv);
+          allPosts.append(postRow);
+
         });
    
 }
