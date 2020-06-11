@@ -118,7 +118,7 @@ postForm.on("submit", function(event){
 
     $.post("/api/posts", post)
         .then(function() {
-          renderPosts();
+          // renderPosts();
         })
         .catch(function(err) {
           console.log(err);
