@@ -29,19 +29,3 @@ db.sequelize.sync().then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-//Routes
-//require("./routes/html-routes.js")(app);
-require("./routes/users-api-routes.js")(app);
-require("./routes/hashtag-api-routes.js")(app);
-require("./routes/posts-api-routes.js")(app);
-
-
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
-  });
-
-
-
