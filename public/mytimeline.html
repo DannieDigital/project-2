@@ -98,7 +98,8 @@
           <div class="form-group row">
             <label for="file" class="col-sm-2 col-form-label popup">Image</label>
             <div class="col-sm-10">
-              <input type="file" class="form-control" id="file" accept=".jpg, .jpeg, .png">
+              <input type="file" class="form-control" id="file" onchange="readURL(this);" accept=".jpg, .jpeg, .png">
+              <img id="blah" src="assets/1x1.png" alt="your image"/>
             </div>
           </div>
 
