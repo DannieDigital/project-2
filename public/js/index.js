@@ -76,7 +76,7 @@ signUp.on("submit", function(event){
     signupPassword.val("");
     // console.log(userProfile);
     
-    if (!userProfile.firstname || !userProfile.lastname || !userProfile.username || !userProfile.email || !userProfile.password){
+    if (!file[0].files[0] ||!userProfile.firstname || !userProfile.lastname || !userProfile.username || !userProfile.email || !userProfile.password){
         signupAlert.removeAttr("hidden")
         signupAlert.text("Please complete all required fields")
         return;
