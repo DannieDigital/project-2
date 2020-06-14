@@ -3,16 +3,16 @@
     "username": "root",
     "password": "root",
     "database": "project",
-    "host": "",
+    "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
 
   "test": {
     "username": "root",
-    "password": "root",
+    "password": "",
     "database": "database_test",
-    "host": "",
+    "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },

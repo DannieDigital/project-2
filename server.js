@@ -1,6 +1,8 @@
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
+var path = require('path')
+var serveStatic = require('serve-static')
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
@@ -10,6 +12,7 @@ var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
+app.use(serveStatic(path.join(__dirname, 'dist')))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
