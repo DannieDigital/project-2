@@ -1,4 +1,4 @@
-# Devs/Deck
+# DevDec
 ---
 ## Team Digital Designs
 ![teamDigtialDesigns](public/assets/team.png?size=250)<br/>
