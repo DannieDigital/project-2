@@ -10,16 +10,22 @@
     "debugger": "DEBUG=*:* nodemon server.js",
     "prod": "NODE_ENV=production node server.js",
     "deploy": "cd client && yarn build && cp -a ./build/ ../public/",
-    "heroku-postbuid" : "cross-env NODE_ENV=production WEBPACK_CONFIG=browser_prod,server_prod webpack --colors"
+    "heroku-postbuid": "cross-env NODE_ENV=production WEBPACK_CONFIG=browser_prod,server_prod webpack --colors"
   },
-
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DannieDigital/project-2.git"
+  },
   "engines": {
     "node": "8.5.0",
     "yarn": "1.3.2"
-    },
-
+  },
   "author": "Digital Designs",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DannieDigital/project-2/issues"
+  },
+  "homepage": "https://github.com/DannieDigital/project-2#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
