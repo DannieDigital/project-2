@@ -4,12 +4,13 @@
   "description": "Dev Dec",
   "main": "server.js",
   "scripts": {
-    "dev": "react-scripts start",
-"start": "serve -s build",
-"build": "react-scripts build",
-"test": "react-scripts test --env=jsdom",
-"eject": "react-scripts eject",
-"heroku-postbuild": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "debugger": "DEBUG=*:* nodemon server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "deploy": "cd client && yarn build && cp -a ./build/ ../public/",
+    "heroku-postbuid": "cross-env NODE_ENV=production WEBPACK_CONFIG=browser_prod,server_prod webpack --colors"
   },
   "repository": {
     "type": "git",
