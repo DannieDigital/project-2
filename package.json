@@ -13,6 +13,11 @@
     "heroku-postbuid" : "cross-env NODE_ENV=production WEBPACK_CONFIG=browser_prod,server_prod webpack --colors"
   },
 
+  "engines": {
+    "node": "8.5.0",
+    "yarn": "1.3.2"
+    },
+
   "author": "Digital Designs",
   "license": "ISC",
   "dependencies": {
