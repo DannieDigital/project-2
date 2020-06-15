@@ -1,4 +1,4 @@
-# Devs/Deck
+# DevDec
 ---
 ## Team Digital Designs
 ![teamDigtialDesigns](public/assets/team.png?size=250)<br/>
@@ -31,15 +31,18 @@
 
 * [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3) NPM package to interact with the user via the command-line.
 
-* [console.table](https://www.npmjs.com/package/console.table) to print MySQL rows to the console.
+* [console.table](https://www.npmjs.com/package/console.table) to print MySQL rows to the console. CHANGE TO SEQUELIZE
 
 * [Passport](http://www.passportjs.org/docs/) Passport is authentication middleware for Node that can authenicate username and passwords. 
 
 ### How to Use
-###### 
+###### Launch 
+* [Devs/Deck](https://digitaldesigns2.herokuapp.com/)
 ---
+
 ### Licenses
 ###### ISC
+###### MIT
 ---
 ### Contributors
 ###### Aja Reeves

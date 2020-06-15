@@ -17,6 +17,7 @@
 
 
     <!-- Favicons -->
+    <link rel="icon" href="assets/favicon.JPG">
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -45,8 +46,9 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+    <link href="css/landing.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body class="text-center" id= "landing">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
@@ -55,15 +57,16 @@
     </div>
   </header>
 
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading"><img src="assets/logo.PNG" height = "200"></h1>
-    <p class="lead">A social media platform where developers can share what they are working on. Post your questions, links to your websites, photos of your work</p>
+  <main role="main" class="innercover" >
+    <h1 class="cover-heading"><img src="assets/DevDecClear.png" height = "300"></h1>
+    <h2 id="motto"> Develop | Connect | Devs</h2>
+    <p class="lead" id="runner">A social media platform where developers can share what they are working on. Post your questions, links to your websites, photos of your work</p>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup" id= "loginbtn">
   Sign Up
 </button>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" id= "loginbtn" >
   Login
 </button>
 
@@ -98,7 +101,7 @@
     
           <div class="form-group row justify-content-center">
             <div class="col-sm-10">
-              <button id="login" type="submit" class="btn btn-primary">Login</button>
+              <button id="stickbtn" type="submit" class="btn btn-primary"  >Login</button>
             </div>
           </div>
         </form>
@@ -170,7 +173,7 @@
     
           <div class="form-group row justify-content-center">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary" id="popbtn">Sign in</button>
             </div>
           </div>
         </form>
@@ -179,7 +182,7 @@
       <div class="modal-footer">
         
 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="popbtn" data-dismiss="modal">Close</button>
         
       </div>
     </div>
