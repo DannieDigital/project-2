@@ -1,24 +1,24 @@
-var user = localStorage.getItem('user')
-
 $(document).ready(function(){
-    console.log(("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"))
+    console.log("Hi")
 
 
-    function getUser() {
+    function getUser(id) {
         $.ajax({
             type: "GET",
-            url: "to the backend",
+            url: `/api/users/${id}`,
             dataType: "json",
             success: function(response) {
-                $(".user-box").empty();
-
+                $("#user-box").empty();
+               
+ console.log(response)
                 var card = $("<div>").addClass("card");
-                var title = $("<h3>").addClass("card-title").text("Mary " + "Smith");
-                var image = $("<img>").addClass("img-fluid").setAttribute("src", response.url)
+                var title = $("<h3>").addClass("card-title").text(response.firstName + response.lastName);
+                var image = $("<img>").addClass("img-fluid").setAttribute("src", response.url);
+                var username = $("<h4>").addClass("card").text(response.username);
           
 
-                $(".user-box").append(card);
-                card.append(title,image)
+                $("#user-box").append(card);
+                card.append(image,title,username)
 
             }
         })
