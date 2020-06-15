@@ -11,6 +11,7 @@ var signupPassword = $("#signupPassword");
 var loginAlert = $("#loginAlert");
 var signupAlert = $("#signupAlert")
 var profilePic = $("#blah");
+var fileLoc = $("#fileLoc");
 
 login.on("submit", function(event){
 
@@ -24,6 +25,9 @@ login.on("submit", function(event){
         loginAlert.text("Please enter your username and or password")
         return;
     }
+
+    loginUsername.val("");
+    loginPassword.val("");
 
     loginUser(username, password);
 });
@@ -58,15 +62,32 @@ signUp.on("submit", function(event){
     event.preventDefault(event);
  
     imgData = getBase64Image(blah);
-    localStorage.setItem("avatar", imgData);
+    
+
+    // console.log(file[0].files[0].name);
+
+    // var avatar = file[0].files[0].name || fileLoc.val().trim() || "assets/profile.png"
+
+    var avatar;
+
+    if (file[0].files[0]){
+      avatar = file[0].files[0].name;
+      localStorage.setItem(`${avatar}`, imgData);
+    }else if (!file[0].files[0]){
+      avatar = fileLoc.val().trim()
+    }
+    
+    if(!avatar){
+      avatar = "assets/profile.png";
+    }
 
     var userProfile = {
-        // avatar: file[0].files[0],
+        avatar: avatar ,
         firstname: firstName.val().trim(),
         lastname: lastName.val().trim(),
         username: signupUsername.val().trim(),
         email: signupEmail.val().trim(),
-        password: signupPassword.val().trim()
+        password: signupPassword.val().trim(),
     }
 
     firstName.val("");
@@ -74,9 +95,12 @@ signUp.on("submit", function(event){
     signupUsername.val("");
     signupEmail.val("");
     signupPassword.val("");
+    file.val("");
+    fileLoc.val("");
+    $("#blah") .attr('src', "assets/1x1.png");
     // console.log(userProfile);
     
-    if (!file[0].files[0] ||!userProfile.firstname || !userProfile.lastname || !userProfile.username || !userProfile.email || !userProfile.password){
+    if (!userProfile.firstname || !userProfile.lastname || !userProfile.username || !userProfile.email || !userProfile.password){
         signupAlert.removeAttr("hidden")
         signupAlert.text("Please complete all required fields")
         return;
