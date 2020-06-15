@@ -3,6 +3,7 @@ var newPost = $("#newpost");
 var file = $("#file");
 var hashtag = $("#hashtag");
 var postAlert = $("#postAlert");
+<<<<<<< HEAD
 var userId = localStorage.getItem('userId');
 // var stockPhoto = "assets/profile.png";
 var allPosts = $("#posts");
@@ -21,6 +22,13 @@ searchForm.on("submit", function(event){
   localStorage.setItem("search", searchTerm.val().trim());
   window.location.replace(`/search.html`);
 })
+=======
+var user = localStorage.getItem('userId');
+var stockPhoto = "assets/profile.png";
+var allPosts = $("#posts");
+
+renderPosts();
+>>>>>>> eb8bb69b0ec9a49ea9dd0404fb4c42e221c702cf
 
 postForm.on("submit", function(event){
 
@@ -59,11 +67,17 @@ postForm.on("submit", function(event){
 
     // Get form data 
     var post = {
+<<<<<<< HEAD
       UserId: userId,
       text: newPost.val().trim(),
       HashtagId: null,
       hashtag: hashtag.val().trim(),
       image: image,
+=======
+        UserId: user,
+        text: newPost.val().trim(),
+        image: file[0].files[0],
+>>>>>>> eb8bb69b0ec9a49ea9dd0404fb4c42e221c702cf
     }
 
     newPost.val("");
@@ -120,6 +134,7 @@ postForm.on("submit", function(event){
 
 function makePost(){
 
+<<<<<<< HEAD
   $.get(`/api/users/${userId}`, function(data){
     console.log(data);
 
@@ -134,6 +149,13 @@ function makePost(){
 
     var rowPost = $(`<div class = "row post"></div>`)
     var profilePic = $(`<div class = "col-1"><img src="${photo}" width="50" height="50"></div>`)
+=======
+  $.get(`/api/posts/${userId}`, function(data){
+    console.log(data);
+
+    var rowPost = $(`<div class = "row post"></div>`)
+    var profilePic = $(`<div class = "col-1"><img src="${data.avatar}" width="50" height="50"></div>`)
+>>>>>>> eb8bb69b0ec9a49ea9dd0404fb4c42e221c702cf
     var newPostBttn = $(`<div class = "col-7 mx-auto">
     <div class="card">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPost">New Post</button>
@@ -144,6 +166,7 @@ function makePost(){
       rowPost.append(newPostBttn);
       allPosts.append(rowPost);
     });
+<<<<<<< HEAD
 
   
 
@@ -208,6 +231,46 @@ function renderPosts(){
             postRow.append(postDiv);
             allPosts.append(postRow);
           });
+=======
+
+  
+
+}
+
+function renderPosts(){
+  allPosts.clear();
+  makePost();
+// On the back end the orm would return the posts of all the users "user" follows. Thats why we need the user in url. This route could be confused with the one to return all posts from a certain user. Maybe we could name that one "/api/posts/user"
+    $.get("/api/posts", function(data){
+        console.log(data);
+        data.array.forEach(post => {
+          
+          var postRow = $(`<div class = "row post">`);
+          var profilePic = $(`<div class = "col-1"><img src="${post.User.avatar || stockPhoto}" width="50" height="50"></div>`);
+          var postDiv = $(`<div class = "col-11">`);
+          var postCard = $(`<div class="card">`);
+          var popup = $(`<div class="card-body popup">`);
+          var cardText = $(`<p class="card-text">${post.text}</p>`);
+          var hashtag = $(`<p class="card-text"><small class="text-muted">${post.hashtag || " "}</small></p>`);
+          var postImage = $(`<img src="${post.image}" class="card-img-top" alt="..."width="300" height="200">`);
+          var footer = $(`<div class="card-footer text-muted mx-auto">
+          ${moment(post.updatedAt).fromNow()}</div>`);
+
+          postRow.append(profilePic);
+          popup.append(cardText);
+          popup.append(hashtag);
+
+          if (post.image){
+              popup.append(postImage);
+          }
+
+          popup.append(footer);
+
+          postCard.append(popup);
+          postDiv.append(postCard);
+          postRow.append(postDiv);
+          allPosts.append(postRow);
+>>>>>>> eb8bb69b0ec9a49ea9dd0404fb4c42e221c702cf
         });
    
 }
@@ -256,4 +319,12 @@ var localStorageSpace = function(){
   console.log(data ? 'Approx. space remaining: ' + (5120 - ((data.length * 16)/(8 * 1024)).toFixed(2)) + ' KB' : '5 MB');
 };
 
+<<<<<<< HEAD
 localStorageSpace();
+=======
+        
+
+    });
+
+}
+>>>>>>> eb8bb69b0ec9a49ea9dd0404fb4c42e221c702cf
