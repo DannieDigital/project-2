@@ -8,7 +8,7 @@ var postAlert = $("#postAlert");
 var allPosts = $("#posts");
 var userId = localStorage.getItem('userId');
 var currPost = 0;
-<<<<<<< HEAD
+
 var searchForm = $("#searchForm");
 var searchTerm = $("#searchTerm");
 
@@ -20,21 +20,15 @@ searchForm.on("submit", function(event){
   window.location.replace(`/search.html`);
 })
 
-=======
 
->>>>>>> index and mytimeline done
 $("body").delegate("#deletePost", "click", function(){
 
   var postToDelete = $(this).attr("data-postId");
 
   $.ajax({
     method: "DELETE",
-<<<<<<< HEAD
+
     url: "/api/posts/"+postToDelete,
-=======
-    url: "/api/posts"+postToDelete,
-    data: post
->>>>>>> index and mytimeline done
   })
     .then(function() {
         renderPosts();
@@ -56,11 +50,8 @@ updateForm.on("submit",function(event){
     var post = {
         UserId: userId,
         id: currPost,
-<<<<<<< HEAD
+
         text: newPost.val().trim()
-=======
-        text: loginPassword.val().trim(),
->>>>>>> index and mytimeline done
     }
 
     $.ajax({
@@ -89,39 +80,30 @@ function getImage(photoData){
 
 function renderPosts(){
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
   allPosts.empty();
   
-=======
->>>>>>> index and mytimeline done
   $.get(`/api/users/${userId}`, function(data){
     console.log(data);
     userPosts = data.Posts
     userPosts.forEach(post => {
       var postRow = $(`<div class = "row post">`)
-<<<<<<< HEAD
+
       var profilePic = $(` <div class = "col-1"><img src="${getImage(data.avatar)}" width="50" height="50"></div>`)
-=======
-      var profilePic = $(` <div class = "col-1"><img src="${data.avatar}" width="50" height="50"></div>`)
->>>>>>> index and mytimeline done
+
       var postDiv = $(`<div class = "col-11">`);
       var postCard = $(`<div class="card">`);
       var popup = $(`<div class="card-body popup">`);
       var cardText = $(`<p class="card-text">${post.text}</p>`);
-<<<<<<< HEAD
+
       var hashtag = $(`<p class="card-text"><small class="text-muted">${post.tagname||""}</small></p>`);
       var postImage = $(`<img src="${getImage(post.image)}" class="card-img-top" alt="..."width="300" height="200">`);
-=======
-      var hashtag = $(`<p class="card-text"><small class="text-muted">${tagname}</small></p>`);
-      var postImage = $(`<img src="${post.image}" class="card-img-top" alt="..."width="300" height="200">`);
->>>>>>> index and mytimeline done
       var relativeTime = $(`<div class="text-muted mx-auto">${moment(post.updatedAt).fromNow()}</div>`);
       var footer = $(`<div class="card-footer text-muted mx-auto">
         <button class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-postId=${post.id} id="updateBttn">Update</button>
         <button class="btn btn-danger" data-postId=${post.id} id = "deletePost">Delete</button>
         </div>`)
-<<<<<<< HEAD
 
       postRow.append(profilePic);
       popup.append(cardText);
@@ -161,29 +143,4 @@ var localStorageSpace = function(){
 };
 
 localStorageSpace();
-=======
-  
 
-}
->>>>>>> Render function built out
-=======
-
-      postRow.append(profilePic);
-      popup.append(cardText);
-      popup.append(hashtag);
-
-      if (post.image != 0){
-        popup.append(postImage);
-      }
-
-      popup.append(relativeTime);
-      popup.append(footer);
-
-      postCard.append(popup);
-      postDiv.append(postCard);
-      postRow.append(postDiv);
-      allPosts.append(postRow);
-    });
-  });
-}
->>>>>>> index and mytimeline done
