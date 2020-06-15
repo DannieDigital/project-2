@@ -22,6 +22,7 @@ searchForm.on("submit", function(event){
   window.location.replace(`/search.html`);
 })
 
+
 postForm.on("submit", function(event){
 
   event.preventDefault(event);
@@ -59,11 +60,13 @@ postForm.on("submit", function(event){
 
     // Get form data 
     var post = {
+
       UserId: userId,
       text: newPost.val().trim(),
       HashtagId: null,
       hashtag: hashtag.val().trim(),
       image: image,
+
     }
 
     newPost.val("");
@@ -120,6 +123,7 @@ postForm.on("submit", function(event){
 
 function makePost(){
 
+
   $.get(`/api/users/${userId}`, function(data){
     console.log(data);
 
@@ -134,6 +138,7 @@ function makePost(){
 
     var rowPost = $(`<div class = "row post"></div>`)
     var profilePic = $(`<div class = "col-1"><img src="${photo}" width="50" height="50"></div>`)
+
     var newPostBttn = $(`<div class = "col-7 mx-auto">
     <div class="card">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPost">New Post</button>
@@ -144,6 +149,7 @@ function makePost(){
       rowPost.append(newPostBttn);
       allPosts.append(rowPost);
     });
+
 
   
 
@@ -158,6 +164,23 @@ function getImage(photoData){
   }else{
     photo = photoData;
   }
+
+
+
+  
+
+}
+
+function getImage(photoData){
+  var image = localStorage.getItem(`${photoData}`);
+  var photo;
+
+  if (image){
+    photo = "data:image/png;base64," + image;
+  }else{
+    photo = photoData;
+  }
+
 
   return photo;
 }
@@ -208,6 +231,7 @@ function renderPosts(){
             postRow.append(postDiv);
             allPosts.append(postRow);
           });
+
         });
    
 }
@@ -256,4 +280,8 @@ var localStorageSpace = function(){
   console.log(data ? 'Approx. space remaining: ' + (5120 - ((data.length * 16)/(8 * 1024)).toFixed(2)) + ' KB' : '5 MB');
 };
 
+
 localStorageSpace();
+
+
+
