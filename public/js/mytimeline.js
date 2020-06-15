@@ -9,11 +9,18 @@ var allPosts = $("#posts");
 // var dataImage = localStorage.getItem('avatar');
 var hashtagArr = [];
 var fileLoc = $("#fileLoc");
+var searchForm = $("#searchForm");
+var searchTerm = $("#searchTerm");
 
 renderPosts();
 
 // Get all the hashtags in the database and save to an array 
 
+searchForm.on("submit", function(event){
+  event.preventDefault(event);
+  localStorage.setItem("search", searchTerm.val().trim());
+  window.location.replace(`/search.html`);
+})
 
 postForm.on("submit", function(event){
 
@@ -160,7 +167,7 @@ function renderPosts(){
 // On the back end the orm would return the posts of all the users "user" follows. Thats why we need the user in url. This route could be confused with the one to return all posts from a certain user. Maybe we could name that one "/api/posts/user"
     $.get("/api/posts", function(data){
         // console.log(data);
-        var tagname = "";
+        var tagname;
 
 
         hashtagArr.forEach(hashtag => {
