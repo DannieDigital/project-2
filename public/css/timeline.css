@@ -1,0 +1,16 @@
+#foreground{
+    background-image: linear-gradient(rgb(33, 19, 65) 30%, #2b0f6d,rgb(33, 19, 65));
+    border-color: rgb(102, 36, 163);
+    color: whitesmoke;
+   }
+
+   body{
+    background-image: linear-gradient(rgb(33, 19, 65) 30%, #2b0f6d,rgb(33, 19, 65));
+    border-color: rgb(102, 36, 163);
+    color: whitesmoke;
+   }
+   #postbtn{
+    background-color:rgb(102, 36, 163);
+    border-color: rgb(102, 36, 163);
+
+   }

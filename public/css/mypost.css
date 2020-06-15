@@ -1,0 +1,28 @@
+#foreground{
+     background-image: linear-gradient(rgb(33, 19, 65) 30%, #2b0f6d,rgb(33, 19, 65));
+     border-color: rgb(102, 36, 163);
+     color: whitesmoke;
+    }
+
+#navigation{
+    background-color:rgb(102, 36, 163);
+ border-color: rgb(102, 36, 163);
+}    
+.updatebtn{
+background-color:rgb(102, 36, 163);
+border-color: rgb(102, 36, 163);
+}
+#deletePost{
+background-color:rgb(102, 37, 160);
+border-color: rgb(102, 37, 160);
+
+}
+#updatedPost{
+    background-color:rgb(102, 37, 160);
+    border-color: rgb(102, 37, 160);
+    
+}
+#navi{
+    color:rgb(102, 36, 163);
+ border-color: rgb(102, 36, 163);
+}    

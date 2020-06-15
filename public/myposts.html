@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -45,12 +45,13 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+    <link href="css/mypost.css" rel="stylesheet">
   </head>
-  <body>
+  <body id="foreground">
    
 
- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="/"><img src="assets/logo.PNG" height = "60"></a>
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navi" >
+  <a id="navi" class="navbar-brand" href="/"><img src="assets/logo.PNG" height = "80px"></a>
     <form class="form-inline mt-2 mt-md-0 navbar-left">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
@@ -86,7 +87,7 @@
           2 days ago
         </div>
         <div class="card-footer text-muted mx-auto">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#updateModal" >Update</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#updateModal" id="updatedPost" >Update</button>
             <button class="btn btn-danger" id = "deletePost">Delete</button>
           </div>
       </div>
@@ -131,7 +132,7 @@
       
             <div class="form-group row justify-content-center">
               <div class="col-sm-10 mx-auto">
-                <button type="submit" class="btn btn-primary">Update Post</button>
+                <button type="submit" class="btn btn-primary" id="updatebtn">Update Post</button>
               </div>
             </div>
           </form>
