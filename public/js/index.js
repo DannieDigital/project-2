@@ -134,7 +134,7 @@ function loginUser(username, password){
 
   })
     // Not working
-    $.post("/login", {
+    $.get("/mytimeline", {
         username: username,
         password: password
       })

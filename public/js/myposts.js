@@ -8,7 +8,6 @@ var postAlert = $("#postAlert");
 var allPosts = $("#posts");
 var userId = localStorage.getItem('userId');
 var currPost = 0;
-
 var searchForm = $("#searchForm");
 var searchTerm = $("#searchTerm");
 
@@ -20,14 +19,12 @@ searchForm.on("submit", function(event){
   window.location.replace(`/search.html`);
 })
 
-
 $("body").delegate("#deletePost", "click", function(){
 
   var postToDelete = $(this).attr("data-postId");
 
   $.ajax({
     method: "DELETE",
-
     url: "/api/posts/"+postToDelete,
   })
     .then(function() {
@@ -41,7 +38,7 @@ $("body").delegate("#updateBttn", "click", function(){
 });
 
 updateForm.on("submit",function(event){
-    if (newPost.val().trim() == "" ){
+    if (updatedPost.val().trim() == "" ){
         postAlert.removeAttr("hidden")
         postAlert.text("Please fill out Post field")
         return;
@@ -50,8 +47,7 @@ updateForm.on("submit",function(event){
     var post = {
         UserId: userId,
         id: currPost,
-
-        text: newPost.val().trim()
+        text: updatedPost.val().trim()
     }
 
     $.ajax({
@@ -80,8 +76,6 @@ function getImage(photoData){
 
 function renderPosts(){
 
-
-
   allPosts.empty();
   
   $.get(`/api/users/${userId}`, function(data){
@@ -89,14 +83,11 @@ function renderPosts(){
     userPosts = data.Posts
     userPosts.forEach(post => {
       var postRow = $(`<div class = "row post">`)
-
       var profilePic = $(` <div class = "col-1"><img src="${getImage(data.avatar)}" width="50" height="50"></div>`)
-
       var postDiv = $(`<div class = "col-11">`);
       var postCard = $(`<div class="card">`);
       var popup = $(`<div class="card-body popup">`);
       var cardText = $(`<p class="card-text">${post.text}</p>`);
-
       var hashtag = $(`<p class="card-text"><small class="text-muted">${post.tagname||""}</small></p>`);
       var postImage = $(`<img src="${getImage(post.image)}" class="card-img-top" alt="..."width="300" height="200">`);
       var relativeTime = $(`<div class="text-muted mx-auto">${moment(post.updatedAt).fromNow()}</div>`);
@@ -143,4 +134,3 @@ var localStorageSpace = function(){
 };
 
 localStorageSpace();
-

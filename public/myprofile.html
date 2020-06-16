@@ -62,8 +62,8 @@
 
   <nav id="topbar" class="navbar topbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="/"><img src="assets/logo.PNG" height="60"></a>
-    <form class="form-inline mt-2 mt-md-0 navbar-left">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <form class="form-inline mt-2 mt-md-0 navbar-left" id="searchForm">
+      <input class="form-control mr-sm-2" id ="searchTerm" type="text" placeholder="Search Hashtags" aria-label="Search">
       <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
     </form>
 
@@ -73,10 +73,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav ml-auto">
-        <li><a class="nav-item nav-link" href="/mytimeline">My Timeline</a></li>
-        <li><a class="nav-item nav-link" href="/myposts">My Posts</a></li>
-        <li><a class="nav-item nav-link" href="/users">Users</a></li>
-        <li><a class="nav-item nav-link active" href="/myprofile">My Profile</a></li>
+        <li><a class="nav-item nav-link" href="/mytimeline.html">My Timeline</a></li>
+        <li><a class="nav-item nav-link" href="/myposts.html">My Posts</a></li>
+        <!-- <li><a class="nav-item nav-link" href="/users">Users</a></li> -->
+        <li><a class="nav-item nav-link active" href="/myprofile.html">My Profile</a></li>
       </ul>
     </div>
   </nav>
@@ -108,7 +108,7 @@
         <!-- Jumbotron -->
         <div class="jumbotron">
           <!-- Profile image and status - Top Card -->
-          <div class="card mb-3" style="max-width: 540px;">
+          <!-- <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -125,7 +125,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
+
+          <div id = "user"></div>
           <!-- <hr class="my-4"> -->
 
           <!-- Second Card - Profile Content -->
@@ -176,7 +178,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
   <script src="https://kit.fontawesome.com/yourcode.js"></script>
-  <script type="text/javascript" src="js/myposts.js"></script>
+  <script type="text/javascript" src="js/myprofile.js"></script>
 
 
 </body>
