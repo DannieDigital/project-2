@@ -37,7 +37,7 @@
 
 ### How to Use
 ###### Launch 
-* [Devs/Deck](https://digitaldesigns2.herokuapp.com/)
+* [Devs/Deck](https://devdec.herokuapp.com/)
 ---
 
 ### Licenses
@@ -52,6 +52,3 @@
 ---
 ### App Schema
 ![](public/assets/database.png)
-
----
-### App Functionality
